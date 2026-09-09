@@ -49,6 +49,16 @@ public class Area
 
     public static void DeadEnd(Hero champion)
     {
-        Console.WriteLine("You wake up in a soft bed in a guest room at the Dead End, a local tavern you drank yourself to sleep at ");
+        Console.WriteLine("You wake up in a soft bed in a guest room at the Dead End, a local tavern you drank yourself to sleep at last night.\n" +
+                          "You walk downstairs to have some breakfast and while downstairs, you notice a game of poker being played.\n");
+        bool response = Question.AskToConfirm("Do you want to join the game of cards?");
+        if (response)
+        {
+            Console.Clear();
+            Console.WriteLine("The game is simple. Every player gets dealt one card. The one with the highest wins!\n" +
+                              "You gamble head to head and bet however much you want. Winner takes all!\n");
+            Console.ReadLine();
+            
+        }
     }
 }
