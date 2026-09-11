@@ -25,7 +25,7 @@ class Program
 
     public static void Print(string text)
     {
-        int dt = 500 / 60;
+        int dt = 400 / 60;
         for (int i = 0; i < text.Length; i++)
         {
             Console.Write(text[i]);

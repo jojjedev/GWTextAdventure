@@ -2,53 +2,85 @@
 
 public class Card
 {
-    public static string Suit;
-    public static string Value;
-    public string Name = $"{Value} of {Suit}";
+    public string Suit;
+    public string Value;
+    public string Name;
     public int SuitValue;
     public int IntValue;
     private void CardValues(Card card)
     {
-        switch (Suit)
+        switch (card.Suit)
         {
-            case "hearts":
+            case "Hearts":
                 SuitValue = 4;
                 break;
-            case "spades":
+            case "Spades":
                 SuitValue = 3;
                 break;
-            case "diamonds":
+            case "Diamonds":
                 SuitValue = 2;
                 break;
-            case "clubs":
+            case "Clubs":
                 SuitValue = 1;
                 break;
         }
 
-        switch (Value)
+        switch (card.Value)
         {
-            case "ace":
+            case "Ace":
                 IntValue = 14;
                 break;
-            case "king":
+            case "King":
                 IntValue = 13;
                 break;
-            case "queen":
+            case "Queen":
                 IntValue = 12;
                 break;
-            case "jack":
+            case "Jack":
                 IntValue = 11;
                 break;
             default:
-                IntValue = int.Parse(Value);
+                IntValue = int.Parse(card.Value);
                 break;
         }
     }
 
-    public Card CreateCard()
+    public static Card CreateCard()
     {
         Card newCard = new Card();
-        newCard.CardValues(newCard);
         return newCard;
+    }
+
+    public static List<Card> CreateDeck()
+    {
+        List<Card> deck = new List<Card>();
+        string[] suits = { "Hearts", "Spades", "Diamonds", "Clubs" };
+        string[] values = { "Ace", "King", "Queen", "Jack", "10", "9", "8", "7", "6", "5", "4", "3", "2" };
+        for (int i = 0; i < suits.Length; i++)
+        {
+            int suitValue = 4 - i;
+            
+            for (int j = 0; j < values.Length; j++)
+            {
+                int IntValue = 14 - j;
+                Card currentCard = CreateCard();
+                currentCard.Suit = suits[i];
+                currentCard.Value = values[j];
+                currentCard.SuitValue = suitValue;
+                currentCard.IntValue = IntValue;
+                currentCard.Name = $"{currentCard.Value} of {currentCard.Suit}";
+                deck.Add(currentCard);
+            }
+        }
+        
+
+        return deck;
+    }
+
+    public static Card RandomCard(List<Card> deck)
+    {
+        Random random = new Random();
+        int cardNumber = random.Next(1, 53);
+        return deck[cardNumber];
     }
 }

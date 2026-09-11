@@ -51,7 +51,7 @@ public class Area
     public static void DeadEnd(Hero champion)
     {
         Program.Print("You wake up in a soft bed in a guest room at the Dead End, a local tavern you drank yourself to sleep at last night.\n" +
-                          "You walk downstairs to have some breakfast and while downstairs, you notice a game of poker being played.\n");
+                          "You walk downstairs to have some breakfast and while downstairs, you notice a card game being played at one of the tables.");
         bool response = Question.AskToConfirm("Do you want to join the game of cards?");
         if (response)
         {

@@ -29,12 +29,11 @@ public static class Question
         string response;
         while (true)
         {
-            response = Ask(question + "(Y/n)");
+            response = Ask(question + "(yes/no)");
             switch (response)
             {
                 case "yes":
                     case "y" :
-                    case "":
                     return true;
                 case "no":
                     case "n":
