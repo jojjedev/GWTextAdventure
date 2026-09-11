@@ -5,7 +5,7 @@ public class Area
     public static void NewGame(Hero champion)
         {
             Console.Clear();
-            switch (champion.Race)
+            /*switch (champion.Race)
             {
                 case "human":
                     champion.Location = "deadend";
@@ -24,7 +24,7 @@ public class Area
                     break;
                     
             } // Sätter starting zone beroende på race
-    
+    */
             switch (champion.Profession)
             {
                 case "elementalist":
@@ -43,21 +43,23 @@ public class Area
                     champion.BaseDmg = 20;
                     break;
             } // Sätter stats beroende på profession
-            
-            
+
+            champion.Location = "deadend";
+
         }
 
     public static void DeadEnd(Hero champion)
     {
-        Console.WriteLine("You wake up in a soft bed in a guest room at the Dead End, a local tavern you drank yourself to sleep at last night.\n" +
+        Program.Print("You wake up in a soft bed in a guest room at the Dead End, a local tavern you drank yourself to sleep at last night.\n" +
                           "You walk downstairs to have some breakfast and while downstairs, you notice a game of poker being played.\n");
         bool response = Question.AskToConfirm("Do you want to join the game of cards?");
         if (response)
         {
             Console.Clear();
-            Console.WriteLine("The game is simple. Every player gets dealt one card. The one with the highest wins!\n" +
+            Program.Print("The game is simple. Every player gets dealt one card. The one with the highest wins!\n" +
                               "You gamble head to head and bet however much you want. Winner takes all!\n");
             Console.ReadLine();
+            CardGameRules.InitCardGame("highestcard", champion);
             
         }
     }

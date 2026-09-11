@@ -6,9 +6,10 @@ public static class Question
 {
     public static string Ask(string question)
     {
+        
         string response;
         /*
-        Console.WriteLine(question);
+        Program.Print(question);
         do
         {
             response = Console.ReadLine().Trim().ToLower();
@@ -16,7 +17,7 @@ public static class Question
         */
         do
         {
-            Console.WriteLine(question);    
+            Program.Print(question);    
             response = Console.ReadLine().Trim().ToLower();
         } while (response == "");
          // Alternativ lösning på dubbelfrågaproblemet. Två frågor skrivs ut men man clearar bort den första.
@@ -28,22 +29,25 @@ public static class Question
         string response;
         while (true)
         {
-            response = Ask(question + "(yes/no)");
+            response = Ask(question + "(Y/n)");
             switch (response)
             {
                 case "yes":
+                    case "y" :
+                    case "":
                     return true;
                 case "no":
+                    case "n":
                     return false;
                 default:
                     Console.Clear();
-                    Console.WriteLine("Invalid input, please answer the question with 'yes' or 'no'.\n");
+                    Program.Print("Invalid input, please answer the question with 'yes' or 'no'.\n");
                     break;
             }
         }
     }
 
-    public static string AskRace()
+    /*public static string AskRace()
     {
         while (true)
         {
@@ -78,7 +82,7 @@ public static class Question
                         break;
                 default:
                     Console.Clear();
-                    Console.WriteLine("Invalid input, please enter one of the races\n");
+                    Program.Print("Invalid input, please enter one of the races\n");
                     break;
             }
 
@@ -97,7 +101,7 @@ public static class Question
         
         
     }
-
+*/
     public static string AskProfession()
     {
         while (true)
@@ -125,7 +129,7 @@ public static class Question
                             break;
                 default:
                     Console.Clear();
-                    Console.WriteLine("Invalid input. Choose one of the three professions!\n");
+                    Program.Print("Invalid input. Choose one of the three professions!\n");
                     break;
             }
 

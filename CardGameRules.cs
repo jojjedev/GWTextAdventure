@@ -2,29 +2,57 @@
 
 public class CardGameRules
 {
-    public string HighestCard(Card firstCard, Card secondCard)
+    public static void InitCardGame(string cardGame, Hero champion)
+    {
+        if (cardGame == "highestcard")
+        {
+            Card championCard = new Card();
+            Card opponentCard = new Card();
+            HighestCard(championCard, opponentCard, champion);
+        }
+    }
+    public static void HighestCard(Card firstCard, Card secondCard, Hero champion)
     {
         CardPlayer[] opponents =
         {
-            CardPlayer.CreateCardPlayer("Leif"), 
-            CardPlayer.CreateCardPlayer("Gunnar"),
-            CardPlayer.CreateCardPlayer("Wilma")
+            CardPlayer.CreateCardPlayer("Leif Lockhart"), 
+            CardPlayer.CreateCardPlayer("Gunnar Gunnarsson"),
+            CardPlayer.CreateCardPlayer("Wilma Winters")
         };
+        Console.Clear();
+        int roll = Dice.RollD6();
+        switch (roll)
+        {
+            case 1:
+                case 2:
+                    Program.Print($"Your opponent introduces themselves as {opponents[0].Name}");
+                    break;
+            case 3:
+                case 4:
+                    Program.Print($"Your opponent introduces themselves as {opponents[0].Name}");
+                break;
+            
+            case 5:
+                case 6:
+                    Program.Print($"Your opponent introduces themselves as {opponents[0].Name}");
+                    break;
+        }
+        Program.Print("Hej");
         
         if (firstCard.IntValue > secondCard.IntValue)
         {
-            return firstCard.Name;
+            Program.Print($"{firstCard.Name}");
         }
 
         if (firstCard.IntValue == secondCard.IntValue)
         {
             if (firstCard.SuitValue > secondCard.SuitValue)
             {
-                return firstCard.Name;
+                Program.Print($"{firstCard.Name}");
             }
         }
 
-        return secondCard.Name;
+        Program.Print($"{secondCard.Name}");
     }
 
     public class CardPlayer

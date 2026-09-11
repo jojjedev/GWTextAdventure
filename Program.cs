@@ -5,8 +5,8 @@ class Program
     static void Main(string[] args)
     {
         Console.Clear();
-        Console.WriteLine("Press Enter to start your new adventure!");
-        Console.Read();
+        Print("Press Enter to start your new adventure!");
+        Console.ReadLine();
         Console.Clear();
         Hero champion = new Hero();
         while (champion.Location != "quit")
@@ -21,5 +21,18 @@ class Program
                     continue;
             }
         }
+    }
+
+    public static void Print(string text)
+    {
+        int dt = 500 / 60;
+        for (int i = 0; i < text.Length; i++)
+        {
+            Console.Write(text[i]);
+            Thread.Sleep(dt);
+            
+            
+        }
+        Console.WriteLine("\n");
     }
 }
